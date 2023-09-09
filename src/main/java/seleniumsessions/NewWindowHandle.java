@@ -15,6 +15,7 @@ public class NewWindowHandle {
 		
 		//sel 4.x
 		driver.switchTo().newWindow(WindowType.WINDOW);
+		// driver.switchTo().newWindow(WindowType.TAB);
 		
 		driver.get("https://www.google.com");
 		System.out.println(driver.getTitle());
