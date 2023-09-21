@@ -18,24 +18,26 @@ public class ShadowDOMHandle {
 //		//Browser - Page - shadow DOM - iFrame -- e1
 //		
 //		
-//		//
+//		//shadow DOM - shadow DOM -element
 //		String script = "return document.querySelector(\"#userName\").shadowRoot.querySelector(\"#app2\").shadowRoot.querySelector(\"#pizza\");";
 //		
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+		// JavascriptExecutor js = (JavascriptExecutor)driver;
 //		//getting html element --> webelement
 //		WebElement pizza_ele = (WebElement)js.executeScript(script);
 //		pizza_ele.sendKeys("Veg Pizza");
 		
 		
-		Thread.sleep(5000);
+		// Thread.sleep(5000);
 		
-		//
-		driver.get("chrome://settings/");
-		WebElement search  = (WebElement)js.executeScript("return document.querySelector(\"body > settings-ui\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")");
-		search.sendKeys("notification");
+		//shadow dom - shadow dom - shadow dom - element
+		// driver.get("chrome://settings/");
+		// WebElement search  = (WebElement)js.executeScript("return document.querySelector(\"body > settings-ui\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")");
+		// search.sendKeys("notification");
 
 
 	    //shadow dom - frame - shadow dom - element
+	    driver.get("https://selectorshub.com/iframe-in-shadow-dom/");
+		Thread.sleep(5000);
 	    String script1 ="return document.querySelector(\"#userName\").shadowRoot.querySelector(\"#pact1\")";
             String script2 ="return document.querySelector(\"#glaf\")";
 		
