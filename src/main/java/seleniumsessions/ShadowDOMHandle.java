@@ -33,7 +33,19 @@ public class ShadowDOMHandle {
 		driver.get("chrome://settings/");
 		WebElement search  = (WebElement)js.executeScript("return document.querySelector(\"body > settings-ui\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")");
 		search.sendKeys("notification");
+
+
+	    //shadow dom - frame - shadow dom - element
+	    String script1 ="return document.querySelector(\"#userName\").shadowRoot.querySelector(\"#pact1\")";
+            String script2 ="return document.querySelector(\"#glaf\")";
 		
+	    JavascriptExecutor js = (JavascriptExecutor)driver;
+	    WebElement frameElementInsideShadowDom = (WebElement)js.executeScript(script1);
+	    
+	    driver.switchTo().frame(frameElementInsideShadowDom);
+	    
+	    WebElement shadowDomElementInsideFrame = (WebElement)js.executeScript(script2);
+	    shadowDomElementInsideFrame.sendKeys("Black Panthers");
 		
 	}
 	
