@@ -10,6 +10,7 @@ public class NewChromeDemo {
 		System.setProperty("webdriver.chrome.driver", "/Users/naveenautomationlabs/Downloads/chromedriver-mac-x64/chromedriver");//115.exe
 		ChromeOptions co = new ChromeOptions();
 		co.setBinary("/Users/naveenautomationlabs/Downloads/chrome-mac-x64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing");
+		// co.setBinary("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"); //path of driver
 		WebDriver driver = new ChromeDriver(co);//browser - 115
 		driver.get("https://www.google.com");
 		driver.findElement(By.name("q")).sendKeys("Naveen Automation Labs");
