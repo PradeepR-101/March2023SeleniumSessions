@@ -1,0 +1,53 @@
+package seleniumsessions;
+
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class WebTablePagination {
+	
+	static WebDriver driver;
+	
+	public static void main(String[] args) throws InterruptedException {
+		
+		driver = new ChromeDriver();
+		driver.get("https://selectorshub.com/xpath-practice-page/");
+		
+		By closePopup = By.xpath("//img[@title='Close']");
+		By nextBtn = By.linkText("Next");
+		
+		//random popup
+		getElement(closePopup).click();
+		
+		while(true) {
+			if(getElements(By.xpath("//td[text()='Pradeep']")).size()>0) {
+				selectCountry("Pradeep");
+				break;
+			}
+			else {
+				getElement(nextBtn).click();
+				if(getElement(nextBtn).getAttribute("class").contains("disabled")) {
+					System.out.println("pagination over not found country");
+					break;
+				}
+				Thread.sleep(2000);
+			}
+		}
+	}
+	
+	public static void selectCountry(String countryName) {
+		getElement(By.xpath("//td[text()='"+countryName+"']/preceding-sibling::td/input[@type='checkbox']")).click();
+	}
+	
+	public static WebElement getElement(By locator) {
+		return driver.findElement(locator);
+	}
+	
+	public static List<WebElement> getElements(By locator) {
+		return driver.findElements(locator);
+	}
+
+}
